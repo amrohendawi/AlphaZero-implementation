@@ -1,0 +1,175 @@
+----- 04/06/19 08:54:09 -----
+Traceback (most recent call last):
+  File "/Users/bibek/Downloads/SimpleChess_GamePYTHON/chess game simple/gui.py", line 166, in play_as
+    CLOCK.tick(CLOCK_TICK)
+KeyboardInterrupt
+
+Playing as WHITE:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 22:57:07 -----
+Traceback (most recent call last):
+  File "gui.py", line 167, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 103, in print_board
+    print_empty_board()
+  File "gui.py", line 71, in print_empty_board
+    paint_dark_squares(BOARD_COLOR[0])
+  File "gui.py", line 80, in paint_dark_squares
+    paint_square(chess.bb2str(position), square_color)
+  File "gui.py", line 76, in paint_square
+    pygame.draw.rect(SCREEN, square_color, (SQUARE_SIDE*col,SQUARE_SIDE*col,SQUARE_SIDE,SQUARE_SIDE), 0).border_radius(1)
+AttributeError: 'pygame.Rect' object has no attribute 'border_radius'
+
+Playing as WHITE:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 22:57:51 -----
+Traceback (most recent call last):
+  File "gui.py", line 167, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 103, in print_board
+    print_empty_board()
+  File "gui.py", line 71, in print_empty_board
+    paint_dark_squares(BOARD_COLOR[0])
+  File "gui.py", line 80, in paint_dark_squares
+    paint_square(chess.bb2str(position), square_color)
+  File "gui.py", line 76, in paint_square
+    pygame.draw.rect(SCREEN, square_color, (SQUARE_SIDE*col,SQUARE_SIDE*col,SQUARE_SIDE,SQUARE_SIDE), 1,1)
+TypeError: function takes at most 4 arguments (5 given)
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 23:17:36 -----
+Traceback (most recent call last):
+  File "gui.py", line 167, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 103, in print_board
+    print_empty_board()
+  File "gui.py", line 71, in print_empty_board
+    paint_dark_squares(BOARD_COLOR[2])
+IndexError: tuple index out of range
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 23:17:51 -----
+Traceback (most recent call last):
+  File "gui.py", line 167, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 103, in print_board
+    print_empty_board()
+  File "gui.py", line 71, in print_empty_board
+    paint_dark_squares(BOARD_COLOR[3])
+IndexError: tuple index out of range
+
+Playing as WHITE:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 23:18:24 -----
+Traceback (most recent call last):
+  File "gui.py", line 167, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 103, in print_board
+    print_empty_board()
+  File "gui.py", line 70, in print_empty_board
+    SCREEN.fill(BOARD_COLOR[0])
+TypeError: invalid color argument
+
+Playing as WHITE:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/25/20 23:41:21 -----
+Traceback (most recent call last):
+  File "gui.py", line 173, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 109, in print_board
+    print_empty_board()
+  File "gui.py", line 72, in print_empty_board
+    paint_dark_squares(BLACK)
+  File "gui.py", line 85, in paint_dark_squares
+    for position in chess.single_gen(chess.WHITE_SQUARES):
+AttributeError: module 'chess' has no attribute 'WHITE_SQUARES'
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/26/20 10:33:09 -----
+Traceback (most recent call last):
+  File "gui.py", line 171, in play_as
+    print_board(game.board, color)
+  File "gui.py", line 107, in print_board
+    print_empty_board()
+  File "gui.py", line 72, in print_empty_board
+    paint_dark_squares(BLACK)
+  File "gui.py", line 82, in paint_dark_squares
+    paint_square(chess.bb2str(position), square_color)
+  File "gui.py", line 78, in paint_square
+    pygame.draw.rect(SCREEN.fill(WHITE), square_color, (SQUARE_SIDE*col,SQUARE_SIDE*row,SQUARE_SIDE,SQUARE_SIDE), 3)
+TypeError: argument 1 must be pygame.Surface, not pygame.Rect
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/26/20 13:13:57 -----
+Traceback (most recent call last):
+  File "gui.py", line 121, in play_as
+    printBoard(game.board, color)
+  File "gui.py", line 88, in printBoard
+    print_empty_board()
+  File "gui.py", line 49, in print_empty_board
+    text = font.render('1', True, green, blue)
+NameError: name 'green' is not defined
+
+Playing as WHITE:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/26/20 13:16:03 -----
+Traceback (most recent call last):
+  File "gui.py", line 125, in play_as
+    printBoard(game.board, color)
+  File "gui.py", line 92, in printBoard
+    print_empty_board()
+  File "gui.py", line 58, in print_empty_board
+    display_surface.blit(text, textRect)
+NameError: name 'display_surface' is not defined
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+
+----- 05/26/20 13:28:29 -----
+Traceback (most recent call last):
+  File "gui.py", line 113, in play_as
+    printBoard(game.board, color)
+  File "gui.py", line 80, in printBoard
+    print_empty_board()
+  File "gui.py", line 46, in print_empty_board
+    pygame.draw.rect(SCREEN,BLACK,(50,50,50))
+TypeError: Rect argument is invalid
+
+Playing as BLACK:
+	
+	rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+-----------------------------
+

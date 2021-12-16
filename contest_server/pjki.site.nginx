@@ -1,0 +1,49 @@
+server {
+	server_name pjki.ml;
+
+	listen 443 ssl default_server;
+	listen [::]:443 ssl default_server;
+
+	root /var/www/html/pjki;
+
+	index index.html index.htm;
+
+	location / {
+		# First attempt to serve request as file
+		# If no such file, show index to allow for client side routing
+		try_files $uri $uri/ /index.html;
+	}
+
+	location /api {
+		# Pass to API server
+		# Since this is not an http proxy but rather the uwsgi protocol, we need to remove the `/api` part ourselves
+		# The slash in /$1 is necessary! Otherwise a plain /api will result in an nginx 500 instead of being passed because there is no leading slash in the result.
+		# I have no idea why _this_ works because technically it would result in double slashes but it works so whatever ¯\_(ツ)_/¯
+		rewrite /api(.*) /$1 break;
+
+		include uwsgi_params;
+		# Disable response buffering to allow for comet-style trickle connections
+		uwsgi_buffering off;
+		# Set the response timeout to an hour to avoid timeouts during those long-standing comet connections
+		uwsgi_read_timeout 3600;
+		# Pass it to the uwsgi server
+		uwsgi_pass unix:/tmp/pjkiserver.sock;
+	}
+
+	# RIP
+	add_header X-Clacks-Overhead "GNU Terry Pratchett" always;
+
+	ssl_certificate /etc/letsencrypt/live/pjki.ml/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/pjki.ml/privkey.pem; # managed by Certbot
+}
+
+server {
+	server_name pjki.ml;
+
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	# 308 instead of 301 to prohibit method change on redirect
+	# (some clients change POST to GET on 301, 308 does not allow that)
+	return 308 https://$host$request_uri;
+}

@@ -1,0 +1,8 @@
+Getestet mit
+python 3.7.5
+
+pip:
+numpy 1.17.2
+matplotlib 3.2.1
+
+ausführen mit "py main.py -help"

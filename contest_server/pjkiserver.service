@@ -1,0 +1,17 @@
+[Unit]
+Description=Server for the 2020 AOT AI Tournament
+After=syslog.target network.target nginx.service docker.service
+
+# Configuration mostly stolen from from uwsgi docs
+[Service]
+User=www-data
+ExecStart=/usr/bin/uwsgi --ini /home/pjki/server/uwsgi.ini
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
